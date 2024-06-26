@@ -38,11 +38,16 @@ class Prixz_Minimo_Compra {
     }
 
     public function enqueue_admin_styles() {
-        wp_enqueue_style( 'prixz-admin-styles', plugin_dir_url( __FILE__ ) . 'css/admin-styles.css' );
+        $screen = get_current_screen();
+        if (strpos($screen->id, 'woocommerce') !== false || $screen->id === 'toplevel_page_prixz-minimo-compra') {
+            wp_enqueue_style( 'prixz-admin-styles', plugin_dir_url( __FILE__ ) . 'css/admin-styles.css' );
+        }
     }
 
     public function enqueue_frontend_styles() {
-        wp_enqueue_style( 'prixz-frontend-styles', plugin_dir_url( __FILE__ ) . 'css/frontend-styles.css' );
+        if (is_woocommerce() || is_cart() || is_checkout()) {
+            wp_enqueue_style( 'prixz-frontend-styles', plugin_dir_url( __FILE__ ) . 'css/frontend-styles.css' );
+        }
     }
 
     public function check_minimum_purchase() {
