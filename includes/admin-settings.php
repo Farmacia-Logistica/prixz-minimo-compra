@@ -38,6 +38,7 @@ $remaining_message = get_option( 'prixz_remaining_message', 'Te faltan %s.' );
                 <th scope="row">Monto mínimo de compra</th>
                 <td>
                     <input type="number" name="prixz_minimum_purchase" value="<?php echo esc_attr( $minimum_purchase ); ?>" />
+                    <p class="description">El monto debe ser igual o mayor a esta cantidad. Por ejemplo, si la cantidad mínima es 1000, no se permitirá comprar un producto de 999, pero uno de 1000 sí.</p>
                 </td>
             </tr>
             <tr valign="top">
