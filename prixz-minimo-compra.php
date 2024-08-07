@@ -15,7 +15,6 @@ class Prixz_Minimo_Compra {
     public function __construct() {
         add_action( 'admin_menu', array( $this, 'create_admin_menu' ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
-        add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_styles' ) );
         add_action( 'woocommerce_checkout_process', array( $this, 'check_minimum_purchase' ) );
         add_action( 'woocommerce_before_cart', array( $this, 'show_minimum_purchase_message' ) );
         add_shortcode( 'prixz_minimo_compra_msg', array( $this, 'minimum_purchase_shortcode' ) );
